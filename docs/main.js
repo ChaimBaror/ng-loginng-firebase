@@ -248,7 +248,7 @@ class AuthService {
         this._router = router;
         this.currentUser$ = this._afAuth.authState.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["switchMap"])(user => {
             if (user) {
-                return this._afStore.doc(`users/${user.uid}`).valueChanges();
+                return this._afStore.doc(`user/${user.uid}`).valueChanges();
             }
             else {
                 return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(null);
@@ -259,7 +259,8 @@ class AuthService {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const provider = new firebase__WEBPACK_IMPORTED_MODULE_3__["auth"].GoogleAuthProvider();
             const credential = yield this._afAuth.signInWithPopup(provider);
-            const userRef = this._afStore.doc(`users/${credential.user.uid}/`);
+            console.log("this user new ", credential);
+            const userRef = this._afStore.doc(`user/${credential.user.uid}/`);
             const userData = {
                 uid: credential.user.uid,
                 display_name: credential.user.displayName,
@@ -267,7 +268,7 @@ class AuthService {
                 image_url: credential.user.photoURL,
                 roles: { member: true }
             };
-            yield this._router.navigate(['/members']);
+            // await this._router.navigate(['/members'])
             return userRef.set(userData, { merge: true });
         });
     }

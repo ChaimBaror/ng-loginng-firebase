@@ -29,7 +29,7 @@ export class AuthService {
     this.currentUser$ = this._afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
-          return this._afStore.doc(`users/${user.uid}`).valueChanges();
+          return this._afStore.doc(`user/${user.uid}`).valueChanges();
         } else {
           return of(null);
         }
@@ -40,8 +40,10 @@ export class AuthService {
   public async signInWithGoogle(): Promise<void> {
     const provider = new firebase.auth.GoogleAuthProvider();
     const credential = await this._afAuth.signInWithPopup(provider);
+    console.log("this user new ",credential);
+    
 
-    const userRef: AngularFirestoreDocument<User> = this._afStore.doc(`users/${credential.user.uid}/`);
+    const userRef: AngularFirestoreDocument<User> = this._afStore.doc(`user/${credential.user.uid}/`);
 
     const userData: User = {
       uid: credential.user.uid,
@@ -51,7 +53,7 @@ export class AuthService {
       roles: { member: true }
     };
 
-    await this._router.navigate(['/members'])
+    // await this._router.navigate(['/members'])
     return userRef.set(userData, { merge: true });
   }
 

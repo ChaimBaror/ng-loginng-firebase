@@ -3,5 +3,5 @@ export class User {
     email: string;
     display_name: string;
     image_url: string;
-    roles: any;
+    roles?: any;
 }

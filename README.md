@@ -46,10 +46,7 @@ path אז נוצר לי   route
 `ng generate module hame --routing --route=home --module=app`
 
 
-
-
-
-########
+#### 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
 
