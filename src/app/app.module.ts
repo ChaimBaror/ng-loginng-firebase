@@ -3,16 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CordModule } from './cord/cord.module';
+import { SheredModule } from './shered/shered.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+  
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CordModule,
+    SheredModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

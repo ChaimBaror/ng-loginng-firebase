@@ -1,4 +1,55 @@
 # Loginng
+# [this is demo](https://chaimbaror.github.io/ng-loginng-firebase/index.html)
+
+
+
+## יצרתי פרויקט חדש 
+שינתי את הסכמה לנוחתי
+`angular.json`ב
+
+     "schematics": {
+        "@schematics/angular:component": {
+          "prefix": "cb",
+          "skipTests": true,
+          "inlineStyle": true
+        },
+        "@schematics/angular:directive": {
+          "prefix": "cb",
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+
+
+
+## התקנה של 
+`npm i bootstrap`
+וגם 
+`npm i font-awesome`
+
+ ## firebase שימוש 
+
+ להתשמש בפונקציות צריך להתקין
+`npm i firebase-tools -g`
+`npm i firebase`
+
+בניתי מודל cord 
+ app בתוך
+`ng generate module cord --module=app`
+
+יצרתי מודל הום וקישרתי אותו ל
+path אז נוצר לי   route 
+ ועל הדרך יש לי קומפוננת הום.....
+כל הטוב הזה על ידי פדוקה אחת
+`ng generate module hame --routing --route=home --module=app`
+
+
+
+
+
+########
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.0.
 

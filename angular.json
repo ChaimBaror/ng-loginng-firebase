@@ -5,7 +5,20 @@
   "projects": {
     "loginng": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "prefix": "cb",
+          "skipTests": true,
+          "inlineStyle": true
+        },
+        "@schematics/angular:directive": {
+          "prefix": "cb",
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -117,8 +130,13 @@
               "devServerTarget": "loginng:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "loginng"
 }

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "loginnig-72ecb": {
+      "hosting": {
+        "loginng": [
+          "loginnig-72ecb"
+        ]
+      }
+    }
+  }
+}
