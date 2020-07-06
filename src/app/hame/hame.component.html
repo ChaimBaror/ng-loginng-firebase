@@ -1,25 +1,36 @@
 <p>hame works!</p>
 
-
-<h1>שלום חבר כדי להמשיך עליך להרשם בבקשה</h1>
-
-
- 
-<br>
-
-  
-    
- <ng-container *ngIf="currentUser | async as user; then memberTemplate; else loginButton"></ng-container> 
-
+<ng-container *ngIf="currentUser | async as user; then memberTemplate; else loginButton"></ng-container>
+<!-- <h1>שלום חבר כדי להמשיך עליך להרשם בבקשה</h1> -->
 <div *isUser></div>
-
-<!-- <a routerLink="/members">members</a> -->
-
 <ng-template #loginButton>
+<div class="text-center">
+    <form class="form-signin">
+        <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">שלום חבר כדי להמשיך עליך להרשם בבקש</h1>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+    </form>
     <button (click)="signInGoogle()" class="btn btn-lg btn-primary">
         להיכנס דרך חשבון גוגל <i class="fa fa-google ml-3"></i>
     </button>
+</div>
 </ng-template>
+
+<!-- <a routerLink="/members">members</a> -->
+
+<!-- <ng-template #loginButton>
+   
+</ng-template> -->
 
 <ng-template #memberTemplate let-user>
     <div class="card">
@@ -29,10 +40,8 @@
         </div>
     </div>
 
-  
-  
+    <button (click)="signOut()" class="btn btn-lg btn-outline-danger ml-5">
+        להתנתק דרך גוגל <i class="fa fa-google ml-3"></i>
+    </button>
 
 </ng-template>
-<button (click)="signOut()" class="btn btn-lg btn-outline-danger ml-5">
-    להתנתק דרך גוגל <i class="fa fa-google ml-3"></i>
- </button>
